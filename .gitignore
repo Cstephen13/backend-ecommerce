@@ -95,5 +95,5 @@ backend_e_commerce/*/migrations/*
 !backend_e_commerce/*/migrations/__init__.py
 .idea/*
 .vscode/*
-backend_e_commerce/media/
+backend_e_commerce/media/*
 .env.dev

@@ -88,7 +88,7 @@ local_settings.py
 
 .env
 db.sqlite3
-
+identifier.sqlite
 backend_e_commerce/config/settings/secrets.json
 
 backend_e_commerce/*/migrations/*

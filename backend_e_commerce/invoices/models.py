@@ -1,3 +1,4 @@
+import datetime
 import uuid
 
 from django.contrib.auth.models import User
@@ -8,12 +9,12 @@ from core.behaviors import ApplicationModelBase
 from products.models import Product
 
 
-class   Invoice(ApplicationModelBase):
+class Invoice(ApplicationModelBase):
     user = models.ForeignKey(User, verbose_name='Usuario', on_delete=models.DO_NOTHING)
     number_invoice = models.IntegerField(default=1)
     total_sale = models.IntegerField(verbose_name='Total venta')
     payment = models.FloatField(verbose_name='Valor Pagado')
-    payment_date = models.DateTimeField(verbose_name='Fecha de Pago')
+    payment_date = models.DateTimeField(verbose_name='Fecha de Pago', default=datetime.datetime)
     products = models.ManyToManyField(Product, verbose_name='Productos')
 
     class Meta:

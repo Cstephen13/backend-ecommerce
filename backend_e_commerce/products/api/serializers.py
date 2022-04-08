@@ -4,6 +4,7 @@ from products.models import Product
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    category = serializers.StringRelatedField()
 
     class Meta:
         model = Product

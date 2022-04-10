@@ -5,7 +5,7 @@ from products.models import Product
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    category_id = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Category.objects.all(),
+    category_id = serializers.PrimaryKeyRelatedField( queryset=Category.objects.all(),
                                                      source='category')
     category = serializers.StringRelatedField()
 

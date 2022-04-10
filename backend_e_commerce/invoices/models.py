@@ -15,8 +15,7 @@ class Invoice(ApplicationModelBase):
     total_sale = models.IntegerField(verbose_name='Total venta')
     payment = models.FloatField(verbose_name='Valor Pagado')
     payment_date = models.DateTimeField(verbose_name='Fecha de Pago', auto_now_add=True)
-    products = models.ManyToManyField(Product, verbose_name='Productos', through='InvoiceProduct',
-                                      related_name='invoice_products')
+    products = models.ManyToManyField(Product, verbose_name='Productos', through='InvoiceProduct')
 
     class Meta:
         db_table = 'invoices'
@@ -35,10 +34,12 @@ class Invoice(ApplicationModelBase):
 
 
 class InvoiceProduct(ApplicationModelBase):
-    invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE, verbose_name='Factura')
+    invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE, verbose_name='Factura',
+                                related_name='detail_products')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Producto')
     quantity = models.IntegerField(verbose_name='Cantidad')
-    price_product = models.IntegerField(verbose_name='Cantidad')
+    price_product = models.IntegerField(verbose_name='Precio')
 
-    def __str__(self):
-        return f'{self.invoice} - {self.product}'
+    class Meta:
+        db_table = 'invoice_products'
+        ordering = ['-price_product']

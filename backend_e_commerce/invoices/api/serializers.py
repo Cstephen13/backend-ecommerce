@@ -7,12 +7,13 @@ class InvoiceProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = InvoiceProduct
-        fields = ('id', 'product', 'quantity', 'price_product')
+        fields = ('id', 'quantity', 'product', 'price_product')
 
 
 class InvoiceSerializer(serializers.ModelSerializer):
-    products = InvoiceProductSerializer(read_only=True, many=True, source='invoice_products')
+    detail_products = InvoiceProductSerializer(many=True)
+    user = serializers.StringRelatedField()
 
     class Meta:
         model = Invoice
-        fields = ('id', 'user', 'number_invoice', 'total_sale', 'payment', 'payment_date', 'products')
+        fields = ('id', 'user', 'number_invoice', 'total_sale', 'payment', 'payment_date', 'detail_products')

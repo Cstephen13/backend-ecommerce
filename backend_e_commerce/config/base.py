@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'invoices',
     'api',
     'core'
-
 ]
 
 MIDDLEWARE = [

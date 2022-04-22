@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:8000 backend_e_commerce.wsgi
+web: gunicorn --bind 0.0.0.0:8000 --env DJANGO_SETTINGS_MODULE=config.settings.base config.wsgi

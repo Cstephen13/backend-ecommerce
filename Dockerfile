@@ -5,7 +5,7 @@ RUN apk update \
 
 COPY requirements.txt /app/requirements.txt
 RUN pip install -U pip setuptools \
-    && pip install importlib \
+    && pip install wheel \
     && pip install --no-cache-dir -r /app/requirements.txt \
     && pip install gunicorn \
     && rm -rf /root/.cache \

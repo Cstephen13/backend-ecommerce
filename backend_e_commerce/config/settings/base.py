@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'categories',
     'offers',
     'invoices',
-    'api'
+    'api',
+    'core'
 
 ]
 

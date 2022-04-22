@@ -1,1 +1,1 @@
-web: gunicorn backend_e_commerce.wsgi
+web: gunicorn config.wsgi:application

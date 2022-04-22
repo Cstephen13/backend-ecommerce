@@ -30,4 +30,4 @@ EXPOSE 8000
 
 #CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "backend_e_commerce:application"]
 
-CMD gunicorn backend_e_commerce.config.wsgi:application --bind 0.0.0.0:$PORT
+CMD gunicorn --bind 0.0.0.0:8000 --env DJANGO_SETTINGS_MODULE= config.settings.base  backend_e_commerce.config.wsgi

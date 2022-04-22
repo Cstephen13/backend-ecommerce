@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:8000 backend_e_commerce:application
+web: gunicorn --bind 0.0.0.0:8000 backend_e_commerce:backend_e_commerce

@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:8000 --pythonpath backend_e_commerce backend_e_commerce.config.wsgi:application
+web: gunicorn --pythonpath backend_e_commerce backend_e_commerce.config.wsgi:application

@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "https://e-commerce-flame-two.vercel.app",
 ]
 ROOT_URLCONF = 'config.urls'
 

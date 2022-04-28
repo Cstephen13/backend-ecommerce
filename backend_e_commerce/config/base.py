@@ -153,9 +153,9 @@ USE_S3 = False
 
 if USE_S3:
     # aws settings
-    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", 'AKIA3KSVUBC2EQM4AOAH')
-    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY_ID", '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')
-    AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", 'django-ecommerce234')
+    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", '')
+    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY_ID", '')
+    AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", '')
     AWS_DEFAULT_ACL = None
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
@@ -166,9 +166,9 @@ if USE_S3:
     DEFAULT_FILE_STORAGE = 'core.storages.MediaStorage'
 else:
     STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static_collected')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     os.makedirs(STATIC_ROOT, exist_ok=True)
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
     # Media files
     MEDIA_URL = '/media/'

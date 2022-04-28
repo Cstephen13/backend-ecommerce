@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "corsheaders",
     'rest_framework',
+    'drf_yasg',
     'storages',
     'products',
     'categories',
@@ -63,6 +64,10 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "https://e-commerce-flame-two.vercel.app",
 ]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+# ]
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -89,7 +94,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
@@ -144,14 +149,14 @@ USE_TZ = True
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
-USE_S3 = os.environ.get('USE_S3') == 'TRUE'
+USE_S3 = False
 
 if USE_S3:
     # aws settings
-    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", '')
-    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY_ID", '')
-    AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_ACCESS_KEY_ID", '')
-    AWS_DEFAULT_ACL = 'public-read'
+    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", 'AKIA3KSVUBC2EQM4AOAH')
+    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY_ID", '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')
+    AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", 'django-ecommerce234')
+    AWS_DEFAULT_ACL = None
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     # s3 static settings
